@@ -9,10 +9,10 @@ let package = Package(
 		platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "GoogleMaps", targets: ["GoogleMaps"]),
-				.library(name: "GoogleMapsBase", targets: ["GoogleMapsBase"]),
-				.library(name: "GoogleMapsCore", targets: ["GoogleMapsCore"]),
-				.library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4B"]),
+			.library(name: "GoogleMaps", type: .dynamic, targets: ["GoogleMapsBinary", "GoogleMaps"]),
+				.library(name: "GoogleMapsBase", type: .dynamic, targets: ["GoogleMapsBinary", "GoogleMapsBase"]),
+				.library(name: "GoogleMapsCore", type: .dynamic, targets: ["GoogleMapsBinary", "GoogleMapsCore"]),
+				.library(name: "GoogleMapsM4B", type: .dynamic, targets: ["GoogleMapsBinary", "GoogleMapsM4B"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,7 +21,10 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .binaryTarget(
+			.target(
+				name: "GoogleMapsBinary"
+			),
+			.binaryTarget(
             name: "GoogleMaps",
             path: "Sources/GoogleMapsSPM/GoogleMaps.xcframework"
 				),
