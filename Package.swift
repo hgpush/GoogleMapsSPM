@@ -9,10 +9,10 @@ let package = Package(
 		platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "GoogleMaps", targets: ["GoogleMaps"]),
-				.library(name: "GoogleMapsBase", targets: ["GoogleMapsBase"]),
-				.library(name: "GoogleMapsCore", targets: ["GoogleMapsCore"]),
-				.library(name: "GoogleMapsM4B", targets: ["GoogleMapsM4B"]),
+        .library(name: "GoogleMaps", type: .dynamic, targets: ["GoogleMaps"]),
+				.library(name: "GoogleMapsBase", type: .dynamic, targets: ["GoogleMapsBase"]),
+				.library(name: "GoogleMapsCore", type: .dynamic, targets: ["GoogleMapsCore"]),
+				.library(name: "GoogleMapsM4B", type: .dynamic, targets: ["GoogleMapsM4B"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
